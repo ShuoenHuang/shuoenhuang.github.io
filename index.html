@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shuoen Huang · Computing Science student</title>
+  <meta name="description" content="I code, solve problems and market. I'm a Computing Science student at the University of Alberta seeking a summer role in rehab tech.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shuoen Huang · Computing Science student">
+  <meta property="og:description" content="I code, solve problems and market. I'm a Computing Science student at the University of Alberta seeking a summer role in rehab tech.">
+  <meta property="og:url" content="https://shuoenhuang.github.io">
+  <meta property="og:site_name" content="Shuoen Huang">
+  <meta name="theme-color" content="#f5f4ef">
+  <link rel="canonical" href="https://shuoenhuang.github.io">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f5f4ef;
+      --ink: #191919;
+      --muted: #55554f;
+      --line: #cecec5;
+      --accent: #244ce0;
+      --placeholder: #fff200;
+      --width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .22em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 6px;
+    }
+
+    mark {
+      background: var(--placeholder);
+      color: #191919;
+      padding: .08em .2em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 3rem));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      z-index: 10;
+      background: var(--paper);
+      padding: .75rem 1rem;
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      min-height: 96px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .wordmark {
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--ink);
+      font-size: .88rem;
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .hero { padding: clamp(3rem, 8vw, 6rem) 0 3rem; }
+
+    .eyebrow,
+    .section-label,
+    .project-type {
+      margin: 0;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow { color: var(--accent); }
+
+    h1 {
+      max-width: 11ch;
+      margin: 1rem 0 1.5rem;
+      font-size: clamp(3.5rem, 9.5vw, 7.25rem);
+      font-weight: 600;
+      line-height: .98;
+      letter-spacing: -.07em;
+    }
+
+    .one-liner {
+      max-width: 37ch;
+      margin: 0;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      line-height: 1.45;
+      letter-spacing: -.025em;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+      padding: .95rem 1.2rem;
+      background: var(--accent);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      transition: background .15s, color .15s;
+    }
+
+    .cta:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .now {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: .9rem;
+    }
+
+    .now-label {
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .now p { margin: 0; }
+
+    .section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--ink);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label { color: var(--accent); }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .project {
+      min-width: 0;
+      border-top: 3px solid var(--accent);
+      padding-top: 1.25rem;
+    }
+
+    .project-type { color: var(--muted); }
+
+    h3 {
+      margin: .65rem 0 1.5rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    dl { margin: 0; }
+
+    .project-detail { margin-top: 1.3rem; }
+
+    dt {
+      margin-bottom: .3rem;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    dd {
+      margin: 0;
+      max-width: 46ch;
+    }
+
+    .work-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 8rem 1fr auto;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .work-date {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
+    }
+
+    .about-copy p {
+      max-width: 53ch;
+      margin: 0 0 1rem;
+      font-size: 1.15rem;
+      line-height: 1.65;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem 1.5rem;
+      margin-top: 2rem;
+      font-size: .95rem;
+    }
+
+    .contact-placeholder { color: var(--muted); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    @media (max-width: 680px) {
+      .container { width: calc(100% - 2rem); }
+      .site-header { min-height: 80px; }
+      nav { gap: .85rem; }
+      .hero { padding-top: 3rem; }
+      .featured-grid,
+      .about-layout { grid-template-columns: 1fr; }
+      .featured-grid { gap: 2.5rem; }
+      .about-layout { gap: .5rem; }
+      .section { padding: 2.5rem 0; }
+      .work-item { grid-template-columns: 1fr; gap: .4rem; }
+      .now { align-items: flex-start; }
+      .cta { max-width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="container">
+    <header class="site-header">
+      <span class="wordmark">SH.</span>
+      <nav aria-label="Main navigation">
+        <a href="#featured">Featured</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="name">
+        <p class="eyebrow">Computing Science / University of Alberta</p>
+        <h1 id="name">Shuoen Huang</h1>
+        <p class="one-liner">
+          I code, solve problems and market. I’m seeking a summer role in rehab tech.
+        </p>
+        <a class="cta" href="mailto:shuoen2@ualberta.ca?subject=Summer%20role%20in%20rehab%20tech">
+          Let’s discuss a summer role <span aria-hidden="true">↗</span>
+        </a>
+        <div class="now">
+          <span class="now-label">Now</span>
+          <p><mark>[What are you working on this month?]</mark></p>
+        </div>
+      </section>
+
+      <section class="section" id="featured" aria-labelledby="featured-heading">
+        <div class="section-heading">
+          <span class="section-label" aria-hidden="true">01</span>
+          <h2 id="featured-heading">Featured</h2>
+        </div>
+
+        <div class="featured-grid">
+          <article class="project">
+            <p class="project-type">Project / 2026</p>
+            <h3>Nethack 2026 Project</h3>
+            <dl>
+              <div class="project-detail">
+                <dt>Problem</dt>
+                <dd><mark>[What problem did the Nethack project address?]</mark></dd>
+              </div>
+              <div class="project-detail">
+                <dt>My decision &amp; why</dt>
+                <dd><mark>[What did you choose to build or change, and why?]</mark></dd>
+              </div>
+              <div class="project-detail">
+                <dt>Result</dt>
+                <dd><mark>[What worked, and how did you check it?]</mark></dd>
+              </div>
+            </dl>
+            <!-- Add a project link only when its exact URL is available. -->
+          </article>
+
+          <article class="project">
+            <p class="project-type">Computing Science / Study</p>
+            <h3>University of Alberta</h3>
+            <dl>
+              <div class="project-detail">
+                <dt>Problem</dt>
+                <dd><mark>[Which coursework problem best shows what you can do?]</mark></dd>
+              </div>
+              <div class="project-detail">
+                <dt>My decision &amp; why</dt>
+                <dd><mark>[What approach did you choose, and why?]</mark></dd>
+              </div>
+              <div class="project-detail">
+                <dt>Result</dt>
+                <dd><mark>[What did you complete or demonstrate?]</mark></dd>
+              </div>
+            </dl>
+            <!-- Add a specific work sample link when available. -->
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-heading">
+        <div class="section-heading">
+          <span class="section-label" aria-hidden="true">02</span>
+          <h2 id="work-heading">Work</h2>
+        </div>
+
+        <!-- Keep dated entries newest first. Featured items are not repeated here.
+             Replace the starter row below with your next additional item.
+             Use <time datetime="YYYY-MM"> for a confirmed date.
+             Add an anchor only when you have the item's exact URL. -->
+        <ul class="work-list">
+          <!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->
+          <li class="work-item">
+            <span class="work-date"><mark>[Date]</mark></span>
+            <span><mark>[What other project, role or work sample should appear here?]</mark></span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section about-layout" id="about" aria-labelledby="about-heading">
+        <div class="section-heading">
+          <span class="section-label" aria-hidden="true">03</span>
+          <h2 id="about-heading">About</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I’m a Computing Science student at the University of Alberta.
+            I play guitar, which shapes how I think creatively about problems.
+            In rehab tech, I’m drawn to <mark>[What specific problem would you like to help a lab or company solve?]</mark>.
+          </p>
+
+          <div class="contact-links" aria-label="Contact and profiles">
+            <a href="mailto:shuoen2@ualberta.ca">shuoen2@ualberta.ca</a>
+            <span class="contact-placeholder">LinkedIn: <mark>[LinkedIn URL]</mark></span>
+            <a href="https://github.com/ShuoenHuang" rel="me">GitHub ↗</a>
+          </div>
+          <!-- Replace the LinkedIn placeholder with an anchor to your exact
+               profile URL, and give that anchor rel="me". -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Shuoen Huang</span>
+      <span>Code. Solve. Communicate.</span>
+    </footer>
+  </div>
+</body>
+</html>
